@@ -1,0 +1,26 @@
+name: CI Pipeline
+
+on:
+    push:
+        branches: ["main"]
+
+
+jobs:
+    build-python:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out the code
+            uses: actions/checkout@v4
+
+          - name: Build Python Docker Image
+            run: |
+                cd python-api
+                docker build -t my=python-api .
+    build-node:
+        runs-on: ubuntu-latest
+        steps:
+          - name: BUild Node Docker Image
+            run: |
+                cd Node-api
+                docker build -t my-node-api
+
