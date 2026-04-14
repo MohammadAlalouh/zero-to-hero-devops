@@ -15,7 +15,7 @@ jobs:
           - name: Build Python Docker Image
             run: |
                 cd python-api
-                docker build -t my=python-api .
+                docker build -t my-python-api .
     build-node:
         runs-on: ubuntu-latest
         steps:
