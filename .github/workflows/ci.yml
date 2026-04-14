@@ -1,26 +1,30 @@
 name: CI Pipeline
 
+# 1. When should this robot wake up?
 on:
-    push:
-        branches: ["main"]
+  push:
+    branches: [ "main" ]
 
-
+# 2. What jobs should it do?
 jobs:
-    build-python:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Check out the code
-            uses: actions/checkout@v4
+  build-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+      
+      - name: Build Python Docker Image
+        run: |
+          cd python-api
+          docker build -t my-python-api .
 
-          - name: Build Python Docker Image
-            run: |
-                cd python-api
-                docker build -t my-python-api .
-    build-node:
-        runs-on: ubuntu-latest
-        steps:
-          - name: BUild Node Docker Image
-            run: |
-                cd node-api
-                docker build -t my-node-api
-
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+      
+      - name: Build Node Docker Image
+        run: |
+          cd node-api
+          docker build -t my-node-api .
