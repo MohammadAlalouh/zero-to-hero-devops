@@ -7,5 +7,5 @@ app.get('/', (req, res) =>  {
 });
 
 app.listen(port, () => {
-    console.log('Node API listening on port ${port}');
+  console.log(`Node API listening on port ${port}`);
 });
