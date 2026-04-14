@@ -21,6 +21,6 @@ jobs:
         steps:
           - name: BUild Node Docker Image
             run: |
-                cd Node-api
+                cd node-api
                 docker build -t my-node-api
 
